@@ -11,7 +11,7 @@ const Checkout = () => {
 
   return (
     <div className="bg-gray-100 min-h-screen">
-      <Navbar />
+      <Navbar />tax
       <main className="max-w-[1000px] mx-auto p-4 flex flex-col md:flex-row gap-8 mt-6">
         <div className="flex-1 bg-white p-6 rounded shadow-sm">
           <h2 className="text-xl font-bold mb-4 border-b pb-2">Order Summary</h2>

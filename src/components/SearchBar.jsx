@@ -51,12 +51,6 @@ const SearchBar = () => {
       onSubmit={handleSearch}
       className="flex h-10 w-full rounded-md focus-within:ring-2 focus-within:ring-[#f3a847] relative"
     >
-      <select className="bg-gray-200 text-black px-2 text-xs border-r border-gray-300 outline-none cursor-pointer hidden sm:block rounded-l-md">
-        <option>All Departments</option>
-        <option>Electronics</option>
-        <option>Fashion</option>
-        <option>Home</option>
-      </select>
       <div className="flex-1 relative h-full bg-white first:rounded-l-md">
         <input 
           type="text" 
@@ -64,7 +58,7 @@ const SearchBar = () => {
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => query.trim() && setShowSuggestions(true)}
           className="w-full h-full px-4 text-black outline-none rounded-l-md sm:rounded-l-none" 
-          placeholder="Search Amazon Clone" 
+          placeholder="Search Amazon Forest" 
         />
         {showSuggestions && suggestions.length > 0 && (
           <ul 

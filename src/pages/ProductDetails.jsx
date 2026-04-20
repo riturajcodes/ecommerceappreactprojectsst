@@ -11,8 +11,10 @@ const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { addToCart } = useCart();
+  const { cart, addToCart, updateQuantity, removeFromCart } = useCart();
   const { toggleWishlist } = useWishlist();
+
+  const cartItem = cart.find(item => item.id === product?.id);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -62,12 +64,36 @@ const ProductDetails = () => {
             </div>
 
             <div className="flex flex-col gap-3 max-w-xs">
-              <button 
-                onClick={() => addToCart(product)}
-                className="w-full py-2 bg-[#ffd814] hover:bg-[#f7ca00] rounded-full font-medium border border-[#fcd200]"
-              >
-                Add to Cart
-              </button>
+              {cartItem ? (
+                <div className="flex items-center justify-between mt-2 py-1 bg-gray-100 rounded-full border border-gray-300 overflow-hidden">
+                  <button 
+                    onClick={() => {
+                      if (cartItem.quantity === 1) {
+                        removeFromCart(product.id);
+                      } else {
+                        updateQuantity(product.id, -1);
+                      }
+                    }}
+                    className="px-4 py-1 hover:bg-gray-200 transition-colors font-bold text-gray-700"
+                  >
+                    -
+                  </button>
+                  <span className="font-bold text-sm text-gray-800">{cartItem.quantity}</span>
+                  <button 
+                    onClick={() => updateQuantity(product.id, 1)}
+                    className="px-4 py-1 hover:bg-gray-200 transition-colors font-bold text-gray-700"
+                  >
+                    +
+                  </button>
+                </div>
+              ) : (
+                <button 
+                  onClick={() => addToCart(product)}
+                  className="w-full py-2 bg-[#ffd814] hover:bg-[#f7ca00] rounded-full font-medium border border-[#fcd200]"
+                >
+                  Add to Cart
+                </button>
+              )}
               <button 
                 onClick={() => toggleWishlist(product)}
                 className="w-full py-2 bg-gray-100 hover:bg-gray-200 rounded-full font-medium border"
