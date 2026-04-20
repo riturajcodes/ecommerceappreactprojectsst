@@ -40,7 +40,7 @@ const Hero = () => {
           <div key={i} className="bg-white p-4 shadow-md hidden sm:block">
             <h3 className="font-bold mb-2">Exclusive Deals</h3>
             <div className="h-40 bg-gray-200 mb-2"></div>
-            <a href="#" className="text-blue-600 text-xs hover:underline">Shop now</a>
+            <a href="/" className="text-blue-600 text-xs hover:underline">Shop now</a>
           </div>
         ))}
       </div>

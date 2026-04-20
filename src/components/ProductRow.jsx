@@ -6,7 +6,7 @@ const ProductRow = ({ title, products, isLoading }) => {
     <div className="bg-white p-5 my-5 mx-4">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-xl font-bold">{title}</h2>
-        <a href="#" className="text-blue-600 hover:underline text-sm">See all deals</a>
+        <a href="/" className="text-blue-600 hover:underline text-sm">See all deals</a>
       </div>
       
       <div className="flex overflow-x-auto gap-4 scrollbar-hide pb-4">
